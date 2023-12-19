@@ -1,0 +1,12 @@
+body{
+    text-align: center;
+}
+
+.logo{
+    position: absolute;
+    top: 1%;
+    left: 10px;
+    border: none;
+    width: 2%;
+    z-index: 1;
+}

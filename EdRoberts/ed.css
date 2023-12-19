@@ -1,0 +1,102 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background: rgb(1, 3, 32);
+    font-family: 'Noto Sans', sans-serif;
+
+}
+
+h1 {
+    text-align: center;
+    color: #fff;
+}
+
+.menu-button {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* .e {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 10%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.644);
+    border-left: 3px solid #fff;
+}
+.d{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 10%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.644);
+    border-right: 3px solid #fff;
+} */
+.logo{
+    position: absolute;
+    top: 1%;
+    left: 10px;
+    border: none;
+    width: 2%;
+    z-index: 1;
+}
+
+p{ 
+    color: rgb(255, 255, 255);
+    flex-wrap: wrap;
+    font-size: 1.2rem;
+    font-weight: bolder;
+}
+
+.paragrafo{
+    display: flex;
+    width: 72%;
+    margin-top: 2%;
+    flex-wrap: wrap;
+    margin-left: 2%;
+}
+
+.texto{
+    display: flex;
+    width: 72%;
+    margin-top: 2%;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+
+.ed{
+    width: 100%;
+} 
+
+.conteiner{
+    display: flex;
+    width: 72%;
+    margin-top: 5%;
+    margin-left: 13%;
+    justify-content: space-around;
+    align-items: center;
+}
+.cont{
+    margin-left: 18%;
+    align-items: center;
+    justify-content: space-around;
+    display: flex;
+    width: 60%;
+}
+
+@media screen and (min-width: 980px) {
+    
+}
