@@ -4,10 +4,9 @@ const context = canvas.getContext('2d');
 const proximapeca = document.getElementById('prox-peca');
 const proximaPecaContext = proximapeca.getContext('2d');
 
-context.scale(20,20);
+context.scale(20, 20);
 
 const colors = [
-
 	null,
 	'red',
 	'blue',
@@ -16,45 +15,21 @@ const colors = [
 	'purple',
 	'orange',
 	'pink'
-
 ]
 
-// const shadow = [
-
-// 	null,
-// 	'rgba(255,0,0,0.3)',
-// 	'rgba(0,0,255,0.3)',
-// 	'rgba(238,130,238, 0.3)',
-// 	'rgba(0,255,0,0.3)',
-// 	'rgba(128,0,128,0.3)',
-// 	'rgba(255,165,0,0.3)',
-// 	'rgba(255,192,203,0.3)'
-
-// ]
-
-// const matriz = [
-
-// 	[0, 0, 0],
-// 	[1, 1, 1],
-// 	[0, 1, 0]
-
-// ];
-
-function criarmatriz( w, h ){
-
+function criarmatriz(w, h) {
 	const matriz = [];
-	while(h--){
+	while (h--) {
 		matriz.push(new Array(w).fill(0));
 	}
 	return matriz;
-
 }
 
 const arena = criarmatriz(14, 25);
 
-function criarPeca(type){
+function criarPeca(type) {
 
-	if( type=='T' ){
+	if (type == 'T') {
 		return [
 			[0, 0, 0],
 			[1, 1, 1],
@@ -62,118 +37,87 @@ function criarPeca(type){
 		];
 
 	}
-	
-	else if ( type=='O' ){
+
+	else if (type == 'O') {
 		return [
 			[2, 2],
 			[2, 2]
 		];
 	}
 
-	else if ( type=='L' ){
-
+	else if (type == 'L') {
 		return [
 			[0, 3, 0],
 			[0, 3, 0],
 			[0, 3, 3]
 		];
-
 	}
-	
-	else if ( type=='J' ){
 
+	else if (type == 'J') {
 		return [
 			[0, 4, 0],
 			[0, 4, 0],
 			[4, 4, 0]
 		];
-
 	}
 
-	else if ( type=='I' ){
-
+	else if (type == 'I') {
 		return [
 			[0, 5, 0, 0],
 			[0, 5, 0, 0],
 			[0, 5, 0, 0],
 			[0, 5, 0, 0]
 		];
-
 	}
-	
-	else if ( type=='S' ){
 
+	else if (type == 'S') {
 		return [
 			[0, 6, 6],
 			[6, 6, 0],
 			[0, 0, 0]
 		];
-
 	}
-	
-	else if ( type=='Z' ){
 
+	else if (type == 'Z') {
 		return [
 			[7, 7, 0],
 			[0, 7, 7],
 			[0, 0, 0]
 		];
-
 	}
-
 }
-
-// function ProximaPeca(matriz){
-// 	const tamanho = 20;
-
-// 	proximaPecaContext.fillStyle = "#000"
-// 	proximaPecaContext.fillRect(0,0, proximapeca.width, proximapeca.height);
-
-// 	matriz.forEach((linha, y) =>{
-// 		linha.forEach((value, x) =>{
-// 			if(value != 0){
-// 				proximaPecaContext.fillStyle = colors[value];
-// 				proximaPecaContext.fillRect(x * tamanho, y * tamanho, tamanho, tamanho);
-// 			}
-// 		})
-// 	})
-// }
 
 function ProximaPeca(matriz) {
 	const tamanho = 30;
-	
+
 	proximaPecaContext.fillStyle = "rgb(0 ,0, 0)";
 	proximaPecaContext.fillRect(0, 0, proximapeca.width, proximapeca.height);
-	
+
 	const larguraMatriz = matriz[0].length * tamanho;
 	const alturaMatriz = matriz.length * tamanho;
-	
+
 	const X = (proximapeca.width - larguraMatriz) / 2;
 	const Y = (proximapeca.height - alturaMatriz) / 2;
-	
+
 	matriz.forEach((linha, y) => {
-	  linha.forEach((value, x) => {
-		if (value !== 0) {
-		  const posX = X + x * tamanho;
-		  const posY = Y + y * tamanho;
-		  proximaPecaContext.fillStyle = colors[value];
-		  proximaPecaContext.fillRect(posX, posY, tamanho, tamanho);
-		}
-	  });
+		linha.forEach((value, x) => {
+			if (value !== 0) {
+				const posX = X + x * tamanho;
+				const posY = Y + y * tamanho;
+				proximaPecaContext.fillStyle = colors[value];
+				proximaPecaContext.fillRect(posX, posY, tamanho, tamanho);
+			}
+		});
 	});
-  }
-  
+}
 
-function inserirElementos(){
+function inserirElementos() {
+	outer: for (let y = arena.length - 1; y > 0; y--) {
 
-	// let linha = 1;
+		for (let x = 0; x < arena[y].length; x++) {
 
-	outer: for(let y = arena.length - 1; y > 0; y--){
+			if (arena[y][x] == 0) { continue outer; }
 
-		for(let x = 0; x < arena[y].length; x++){
-			
-			if(arena[y][x]==0){ continue outer; }
-			
 		}
 
 		var linha = arena.splice(y, 1)[0].fill(0);
@@ -185,44 +129,15 @@ function inserirElementos(){
 
 		jogador.score += 1 * 10;
 
-		if(jogador.score < 900){
+		if (jogador.score < 900) {
 			jogador.speed += 0.2
 			intervaloqueda -= 40;
 		}
 
 	}
-
 }
 
 const sombra = criarmatriz(arena[0].length, arena.length);
-
-// function atualizarSombra() {
-// 	const { pos, matriz } = jogador;
-
-// 	// Limpar a matriz da sombra
-// 	sombra.forEach((linha) => linha.fill(0));
-
-// 	// Percorrer a matriz da peça
-// 	matriz.forEach((linha, y) => {
-// 		linha.forEach((value, x) => {
-// 			if (value !== 0) {
-// 				// Definir a posição inicial da sombra uma linha abaixo da peça
-// 				let shadowY = pos.y + y + 1;
-
-// 				// Verificar se a posição da sombra está livre na arena
-// 				while (shadowY < arena.length && arena[shadowY][pos.x + x] === 0) {
-// 					shadowY++;
-// 				}
-
-// 				// Verificar se a sombra subiu porque encontrou uma peça na arena
-// 				if (shadowY - 1 !== pos.y + y) {
-// 					// Definir o valor da projeção na posição acima da peça
-// 					sombra[shadowY - 1][pos.x + x] = value;
-// 				}
-// 			}
-// 		});
-// 	});
-// }
 
 function movimentarpecas(matriz, deslocamento) {
 	matriz.forEach((linha, y) => {
@@ -233,59 +148,23 @@ function movimentarpecas(matriz, deslocamento) {
 			}
 		});
 	});
-
-	// atualizarSombra();
-	
-	// matriz.forEach((linha, y) => {
-	// 	linha.forEach((value, x) => {
-	// 		if (value !== 0) {
-	// 			context.fillStyle = shadow[value];
-	// 			// Verificar se a posição da sombra está livre na arena
-	// 			if (sombra[y + deslocamento.y] && sombra[y + deslocamento.y][x + deslocamento.x] === 0) {
-	// 				// Verificar se a posição acima da sombra está livre na arena
-	// 				if (sombra[y + deslocamento.y - 1] && sombra[y + deslocamento.y - 1][x + deslocamento.x] === 0) {
-	// 					context.fillRect(x + deslocamento.x, y + arena.length - matriz.length, 1, 1);
-	// 				}
-	// 			} else {
-	// 				while (y < matriz.length) {
-	// 					y++;
-	// 					context.fillRect(x + deslocamento.x, arena.length - matriz.length - 1, 1, 1);
-	// 				}
-	// 			}
-				
-	// 		}
-	// 	});
-	// });
 }
 
 const jogador = {
-
 	matriz: criarPeca(),
-	pos: {x : 0, y: 0},
+	pos: { x: 0, y: 0 },
 	score: 0,
 	speed: 1
 }
 
-function movimento(){
-
+function movimento() {
 	context.fillStyle = 'rgb(0 ,0, 0)';
 	context.fillRect(0, 0, canvas.width, canvas.height);
 
 	const pixel = 1;
 
-	context.strokeStyle = 'rgba(255,255,255,0.2)'; 
+	context.strokeStyle = 'rgba(255,255,255,0.2)';
 	context.lineWidth = 0.1;
-
-	// for (let row = 0; row < canvas.height; row++) {
-	// 	for (let col = 0; col < canvas.width; col++) {
-	// 	const x = col * pixel;
-	// 	const y = row * pixel;
-
-	// 	context.beginPath();
-	// 	context.rect(x, y, pixel, pixel);
-	// 	context.stroke();
-	// 	}
-	// }
 
 	for (let row = 0; row <= canvas.height; row++) {
 		const y = row * pixel;
@@ -303,176 +182,136 @@ function movimento(){
 		context.stroke();
 	}
 
-	movimentarpecas(arena,{x: 0, y: 0});
-	movimentarpecas(jogador.matriz,jogador.pos);
-
+	movimentarpecas(arena, { x: 0, y: 0 });
+	movimentarpecas(jogador.matriz, jogador.pos);
 }
 
 function fundir(arena, jogador) {
-
-	jogador.matriz.forEach ((linha, y) => {
-
-		linha.forEach ((value, x) => {
-
-			if ( value != 0  ){
-
+	jogador.matriz.forEach((linha, y) => {
+		linha.forEach((value, x) => {
+			if (value != 0) {
 				arena[y + jogador.pos.y][x + jogador.pos.x] = value;
-
 			}
-
 		})
-		
 	})
 	encaixe = new Audio('sons/drop-peca.mp3');
 	encaixe.volume = 0.3;
 	encaixe.play();
 }
 
-function intervaloCaixas(arena, jogador){
-
+function intervaloCaixas(arena, jogador) {
 	const [m, o] = [jogador.matriz, jogador.pos];
 
 	for (var y = 0; y < m.length; y++) {
-
 		for (var x = 0; x < m[y].length; x++) {
-
-			if ( m[y][x] != 0 && (arena[y + o.y] && arena[y + o.y][x + o.x] ) != 0 ) return true;
-
+			if (m[y][x] != 0 && (arena[y + o.y] && arena[y + o.y][x + o.x]) != 0) return true;
 		}
-
 	}
 
 	return false;
-
 }
 
 function jogadorDrop() {
-
 	jogador.pos.y++;
 
-	if ( intervaloCaixas(arena, jogador ) ) {
-		
-		jogador.pos.y --;
+	if (intervaloCaixas(arena, jogador)) {
+		jogador.pos.y--;
 		fundir(arena, jogador);
 		jogadorReset();
 		inserirElementos();
 		atualizarPontos();
-
 	}
 
 	queda = 0;
-
 }
 
-function jogadorMove(dir){
-	
+function jogadorMove(dir) {
 	jogador.pos.x += dir;
-	if ( intervaloCaixas(arena,jogador) ) { jogador.pos.x -= dir; }
-
+	if (intervaloCaixas(arena, jogador)) { jogador.pos.x -= dir; }
 }
 
 const NextPiece = [];
 
-function gerarProxima(){
+function gerarProxima() {
 	const pecas = 'ILJOTSZ';
-	while(NextPiece.length < 5){
+	while (NextPiece.length < 5) {
 		let Piece = criarPeca(pecas[pecas.length * Math.random() | 0]);
 		NextPiece.push(Piece);
 	}
 
 	return NextPiece
-
 }
 
-function jogadorReset(){
-
+function jogadorReset() {
 	gerarProxima();
 	ProximaPeca(NextPiece[1]);
-	if(NextPiece.length > 0){
+	if (NextPiece.length > 0) {
 		jogador.matriz = NextPiece[0];
 		NextPiece.shift();
 	}
 	jogador.pos.y = 0;
-	jogador.pos.x = (arena[0].length/2 | 0) - (jogador.matriz[0]/2 | 0);
+	jogador.pos.x = (arena[0].length / 2 | 0) - (jogador.matriz[0] / 2 | 0);
 
-	if ( intervaloCaixas(arena, jogador) ) {
-		
+	if (intervaloCaixas(arena, jogador)) {
 		arena.forEach(linha => linha.fill(0));
 		jogador.score = 0;
 		jogador.speed = 1;
 		intervaloqueda = 1000;
 		atualizarPontos();
-
 	}
-
-
 }
 
-function jogadorRoate(dir){
+function jogadorRoate(dir) {
 
 	let deslocamento = 1;
 	let pos = jogador.pos.x;
 	rotacionarpecas(jogador.matriz, dir);
 
-	while ( intervaloCaixas(arena,jogador) ){
-
+	while (intervaloCaixas(arena, jogador)) {
 		jogador.pos.x += deslocamento;
 
-		deslocamento = -( deslocamento+ (deslocamento > 0 ? 1 : -1) );
+		deslocamento = -(deslocamento + (deslocamento > 0 ? 1 : -1));
 
-		if ( deslocamento > jogador.matriz[0].length ) {
-
+		if (deslocamento > jogador.matriz[0].length) {
 			rotacionarpecas(jogador.matriz, -dir);
 			jogador.pos.x = pos;
 			return;
-
 		}
-
 	}
-
 }
 
-function rotacionarpecas(matriz, dir){
-
+function rotacionarpecas(matriz, dir) {
 	for (var y = 0; y < matriz.length; y++) {
-
 		for (var x = 0; x < y; x++) {
-
 			[
 				matriz[x][y],
 				matriz[y][x]
 			] = [
-				matriz[y][x],
-				matriz[x][y]
-			]
-
+					matriz[y][x],
+					matriz[x][y]
+				]
 		}
-
 	}
 
-	if ( dir > 0 ) { matriz.forEach(linha => linha.reverse()); } 
+	if (dir > 0) { matriz.forEach(linha => linha.reverse()); }
 	else { matriz.reverse(); }
-
 }
 
 let queda = 0;
 let intervaloqueda = 500;
 let atualizar = 0;
 
-function update( time = 0 ) {
-
+function update(time = 0) {
 	const deltaTime = time - atualizar;
 	atualizar = time;
 	queda += deltaTime;
 
-	if( queda >= intervaloqueda ){
+	if (queda >= intervaloqueda) {
 		jogadorDrop();
 	}
 
-
 	movimento();
 	requestAnimationFrame(update);
-
 }
 
 function atualizarPontos() {
@@ -480,34 +319,32 @@ function atualizarPontos() {
 	document.getElementById('speed').innerText = Math.floor(jogador.speed);
 }
 
-document.addEventListener( 'keydown', event => {
+
+document.addEventListener('keydown', event => {
 	mover = new Audio('sons/mover.mp3');
 	rodar = new Audio('sons/rodar.mp3');
 	rodar.volume = 0.1;
 	mover.volume = 0.1;
 
-	if ( event.keyCode == 37 ){
-		// jogador.pos.x --;
+	if (event.keyCode == 37) {
 		jogadorMove(-1);
 		mover.play();
-	} else if(event.keyCode == 39 ){
-		// jogador.pos.x ++;
+	} else if (event.keyCode == 39) {
 		jogadorMove(1);
 		mover.play();
-	} else if(event.keyCode == 40 ){
+	} else if (event.keyCode == 40) {
 		jogadorDrop();
-	} else if (event.keyCode == 81 ){
+	} else if (event.keyCode == 81) {
 		jogadorRoate(-1);
 		rodar.play();
-	} else if(event.keyCode == 87){
+	} else if (event.keyCode == 87) {
 		jogadorRoate(1);
 		rodar.play();
-	} else if( event.keyCode == 38){
+	} else if (event.keyCode == 38) {
 		jogadorRoate(1);
 		rodar.play();
 	}
-
-} )
+})
 
 const music = document.getElementById('music');
 const audio = new Audio('sons/musica.mp3');
@@ -517,17 +354,16 @@ let estado = false;
 
 function musica() {
 	if (estado) {
-    audio.pause();
-    music.textContent = 'Play Music';
-  } else {
-    audio.play();
-    music.textContent = 'Pause Music';
-  }
-  estado = !estado;
+		audio.pause();
+		music.textContent = 'Play Music';
+	} else {
+		audio.play();
+		music.textContent = 'Pause Music';
+	}
+	estado = !estado;
 }
 
 music.addEventListener('click', musica);
-
 
 atualizarPontos();
 jogadorReset();
