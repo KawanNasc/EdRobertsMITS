@@ -24,7 +24,7 @@ h1 {
     cursor: pointer;
 }
 
-/* .e {
+#e {
     position: absolute;
     right: 0;
     top: 0;
@@ -33,7 +33,8 @@ h1 {
     background: rgba(0, 0, 0, 0.644);
     border-left: 3px solid #fff;
 }
-.d{
+
+#d {
     position: absolute;
     left: 0;
     top: 0;
@@ -41,7 +42,7 @@ h1 {
     height: 100%;
     background: rgba(0, 0, 0, 0.644);
     border-right: 3px solid #fff;
-} */
+}
  
 .logo {
     position: absolute;

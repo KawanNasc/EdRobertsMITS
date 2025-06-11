@@ -113,14 +113,11 @@ function ProximaPeca(matriz) {
 
 function inserirElementos() {
 	outer: for (let y = arena.length - 1; y > 0; y--) {
-
 		for (let x = 0; x < arena[y].length; x++) {
-
 			if (arena[y][x] == 0) { continue outer; }
-
 		}
 
-		var linha = arena.splice(y, 1)[0].fill(0);
+		let linha = arena.splice(y, 1)[0].fill(0);
 		arena.unshift(linha);
 		lineClear = new Audio('sons/line-clear.mp3');
 		lineClear.volume = 0.2;
@@ -194,7 +191,7 @@ function fundir(arena, jogador) {
 			}
 		})
 	})
-	encaixe = new Audio('sons/drop-peca.mp3');
+	let encaixe = new Audio('sons/drop-peca.mp3');
 	encaixe.volume = 0.3;
 	encaixe.play();
 }
@@ -202,8 +199,8 @@ function fundir(arena, jogador) {
 function intervaloCaixas(arena, jogador) {
 	const [m, o] = [jogador.matriz, jogador.pos];
 
-	for (var y = 0; y < m.length; y++) {
-		for (var x = 0; x < m[y].length; x++) {
+	for (let y = 0; y < m.length; y++) {
+		for (let x = 0; x < m[y].length; x++) {
 			if (m[y][x] != 0 && (arena[y + o.y] && arena[y + o.y][x + o.x]) != 0) return true;
 		}
 	}
@@ -281,8 +278,8 @@ function jogadorRoate(dir) {
 }
 
 function rotacionarpecas(matriz, dir) {
-	for (var y = 0; y < matriz.length; y++) {
-		for (var x = 0; x < y; x++) {
+	for (let y = 0; y < matriz.length; y++) {
+		for (let x = 0; x < y; x++) {
 			[
 				matriz[x][y],
 				matriz[y][x]
@@ -321,8 +318,8 @@ function atualizarPontos() {
 
 
 document.addEventListener('keydown', event => {
-	mover = new Audio('sons/mover.mp3');
-	rodar = new Audio('sons/rodar.mp3');
+	let mover = new Audio('sons/mover.mp3');
+	let rodar = new Audio('sons/rodar.mp3');
 	rodar.volume = 0.1;
 	mover.volume = 0.1;
 
