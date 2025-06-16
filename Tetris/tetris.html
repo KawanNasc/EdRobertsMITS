@@ -11,50 +11,23 @@
 	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap" rel="stylesheet">
 	<style>
 		body {
-			margin: 0;
-			background: rgb(0, 0, 0);
-			border: #3f57dd solid .2em;
-			color: #fff;
-			font-family: 'IBM Plex Mono', monospace;
-			font-size: 2em;
 			display: flex;
 			justify-content: space-evenly;
+			font-family: 'IBM Plex Mono', monospace;
+			font-size: 2em;
+			margin: 0;
+			background: rgb(0, 0, 0);
+			background-image: url('../imgs/tetris.png');
+			color: rgb(255, 255, 255);
+			border: rgb(63, 87, 221) solid .2em;
+			caret-color: transparent;
 		}
 
 		canvas {
-			border: solid .2em #3f57dd;
-			height: 90vh;
 			margin-right: -20%;
+			height: 90vh;
+			border: solid .2em rgb(63, 87, 221);
 			cursor: none;
-		}
-
-		.caixa {
-			border: solid .2em #3f57dd;
-			background-color: rgb(0, 0, 0);
-			display: flex;
-			width: 100%;
-			height: 150px;
-			margin-bottom: auto;
-			flex-direction: column;
-			justify-content: center;
-		}
-
-		.caixa2 {
-			border: solid .2em #3f57dd;
-			background-color: rgb(0, 0, 0);
-			display: flex;
-			width: 100%;
-			height: 150px;
-			margin-bottom: auto;
-			flex-direction: column;
-		}
-
-		#next {
-			background-color: rgb(0, 0, 0);
-			border: solid .1em #3f57dd;
-			margin-top: 50%;
-			width: 102%;
-			text-align: center;
 		}
 
 		.container-cx {
@@ -63,147 +36,62 @@
 			width: 20%;
 		}
 
-		.pause {
-			position: fixed;
-			top: 45%;
-			height: 60px;
-			width: 100%;
-			z-index: 1;
-			background-color: rgba(0, 0, 0, 0.5);
-			font-size: 3rem;
+		#next {
 			text-align: center;
+			margin-top: 50%;
+			width: 102%;
+			background-color: rgb(0, 0, 0);
+			border: solid .1em rgb(63, 87, 221);
+		}
+
+		#prox-peca {
+			display: flex;
+			flex-direction: column;
+			margin-bottom: auto;
+			width: 100%;
+			height: 150px;
+			background-color: rgb(0, 0, 0);
+			border: solid .2em rgb(63, 87, 221);
+		}
+
+		.caixa {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			height: 150px;
+			width: 100%;
+			margin-bottom: auto;
+			background-color: rgb(0, 0, 0);
+			border: solid .2em rgb(63, 87, 221);
+		}
+
+		a {
+			border: 0 none;
+			outline: 0;
 		}
 
 		#music,
 		#voltar {
-			background-color: #3f57dd;
-			color: white;
-			border: none;
-			border-radius: 100px;
-			width: 25%;
+			width: 35%;
 			margin-bottom: 10px;
+			background-color: rgb(63, 87, 221);
+			color: rgb(255, 255, 255);
+			border: 0 none;
+			border-radius: 100px;
+			outline: 0;
 		}
 
 		#altair {
-			background: radial-gradient(whitesmoke 10%, lightgray 50%);
-			color: black;
 			position: fixed;
 			top: 93.5%;
 			width: 100%;
-		}
-
-		.bola-ver {
-			border: solid .5em red;
-			background-color: red;
-			box-shadow: 0 0 50px red;
-			border-radius: 100%;
-			height: 10px;
-			width: 10px;
-			z-index: -5;
-			position: fixed;
-			top: 20%;
-			left: 10%;
-		}
-
-		.ver-2 {
-			position: fixed;
-			top: 20%;
-			left: 20%;
-		}
-
-		.ver-3 {
-			position: fixed;
-			top: 20%;
-			left: 80%;
-		}
-
-		.ver-4 {
-			position: fixed;
-			top: 20%;
-			left: 90%;
-		}
-
-		.ver-5 {
-			position: fixed;
-			top: 20%;
-			left: 70%;
-		}
-
-		.ver-6 {
-			position: fixed;
-			top: 20%;
-			left: 50%;
-		}
-
-		.bola-bra {
-			border: solid .5em white;
-			background-color: white;
-			box-shadow: 0 0 50px darkslategray;
-			border-radius: 100%;
-			height: 10px;
-			width: 10px;
-			z-index: -5;
-			position: fixed;
-			top: 40%;
-			left: 10%;
-		}
-
-		.bra-2 {
-			position: fixed;
-			top: 40%;
-			left: 20%;
-		}
-
-		.bra-3 {
-			position: fixed;
-			top: 40%;
-			left: 80%;
-		}
-
-		.bra-4 {
-			position: fixed;
-			top: 40%;
-			left: 90%;
-		}
-
-		.bra-5 {
-			position: fixed;
-			top: 40%;
-			left: 70%;
-		}
-
-		.bra-6 {
-			position: fixed;
-			top: 40%;
-			left: 50%;
-		}
-
-		.bra-7 {
-			position: fixed;
-			top: 80%;
-			left: 80%;
-		}
-
-		.bra-8 {
-			position: fixed;
-			top: 80%;
-			left: 70%;
-		}
-
-		.bra-9 {
-			position: fixed;
-			top: 80%;
-			left: 50%;
-		}
-
-		.bra-10 {
-			position: fixed;
-			top: 80%;
-			left: 20%;
+			background: radial-gradient(rgb(245, 245, 245) 10%, rgb(211, 211, 211) 50%);
+			color: rgb(0, 0, 0);
 		}
 
 		.logo {
 			margin-left: 1%;
+			width: 50px;
 		}
 	</style>
 </head>
@@ -211,44 +99,26 @@
 <body>
 	<canvas id='tetris' width="280" height="500"></canvas>
 
-	<div class="pause" hidden>Pause</div>
-
 	<div class="container-cx">
-		<div id="next">Next</div>
-		<canvas class="caixa2" id="prox-peca"></canvas>
+		<div id="next">Próx. peça:</div>
+		<canvas id="prox-peca"></canvas>
 
 		<div class="caixa">
-			<div>Score: <span id="score"></span></div>
-			<div>Speed: <span id="speed"></span></div>
+			<div>Pontuação: <span id="score"></span></div>
+			<div>Velocidade: <span id="speed"></span></div>
 		</div>
-		
-		<input type="button" id="music" value="Tocar música">
+
+		<input type="button" id="music" value="Tocar música" />
 
 		<a href="../index.html" title="Voltar para a página inicial">
-			<input type="button" id="voltar" value="Voltar">
+			<input type="button" id="voltar" value="Voltar" />
 		</a>
 	</div>
 
 	<div id="altair">
-		<img class="logo" src="mits-logo.svg" width="50px" alt="Computador da Altair 8800"> Altair 8800 computer
+		<img class="logo" src="mits-logo.svg" alt="Computador da Altair 8800" /> Altair 8800 computer
 	</div>
 
-	<div class="bola-ver"></div>
-	<div class="bola-bra"></div>
-	<div class="bola-ver ver-2"></div>
-	<div class="bola-bra bra-2"></div>
-	<div class="bola-ver ver-3"></div>
-	<div class="bola-bra bra-3"></div>
-	<div class="bola-ver ver-4"></div>
-	<div class="bola-bra bra-4"></div>
-	<div class="bola-ver ver-5"></div>
-	<div class="bola-bra bra-5"></div>
-	<div class="bola-ver ver-6"></div>
-	<div class="bola-bra bra-6"></div>
-	<div class="bola-bra bra-7"></div>
-	<div class="bola-bra bra-8"></div>
-	<div class="bola-bra bra-9"></div>
-	<div class="bola-bra bra-10"></div>
 	<script type="text/javascript" src="tetris.js"></script>
 </body>
 

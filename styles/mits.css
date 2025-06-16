@@ -1,31 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
 * {
     padding: 0;
     margin: 0;
 }
 
 body {
-    background: rgb(0, 0, 109);
     font-family: 'Noto Sans', sans-serif;
+    background: rgb(0, 0, 109);
 }
 
 h1 {
-    text-align: center;
-    color: #21bfca;
+    flex-wrap: wrap;
     font-size: 200%;
-    flex-wrap: wrap;
-}
-
-p {
-    color: beige;
-    flex-wrap: wrap;
-    font-size: 1.2rem;
-    font-weight: bolder;
+    text-align: center;
+    color: rgb(33, 191, 202);
 }
 
 .texto {
-    position: absolute;
     display: flex;
+    position: absolute;
     width: 72%;
+    padding: 2%;
     margin-top: 2%;
     margin-left: 13%;
     justify-content: center;
@@ -33,17 +29,17 @@ p {
     background: rgb(5, 39, 66);
 }
 
+p {
+    flex-wrap: wrap;
+    font-weight: bolder;
+    color: rgb(245, 245, 220);
+}
+
 img {
     position: absolute;
     top: 1%;
     left: 10px;
-    border: none;
     width: 2%;
+    border: none;
     z-index: 1;
-}
-
-.paragrafo {
-    background: rgb(5, 39, 66);
-    width: 80%;
-    height: 100%;
 }

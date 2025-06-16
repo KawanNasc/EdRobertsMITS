@@ -1,4 +1,4 @@
-let slide = document.querySelectorAll('.slide-conteiner');
+let slide = document.querySelectorAll('.slide-container');
 let index = 0;
 
 function seta_d() {

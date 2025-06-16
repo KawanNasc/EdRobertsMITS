@@ -28,14 +28,12 @@ function criarmatriz(w, h) {
 const arena = criarmatriz(14, 25);
 
 function criarPeca(type) {
-
 	if (type == 'T') {
 		return [
 			[0, 0, 0],
 			[1, 1, 1],
 			[0, 1, 0]
 		];
-
 	}
 
 	else if (type == 'O') {
@@ -119,7 +117,7 @@ function inserirElementos() {
 
 		let linha = arena.splice(y, 1)[0].fill(0);
 		arena.unshift(linha);
-		lineClear = new Audio('sons/line-clear.mp3');
+		let lineClear = new Audio('sons/line-clear.mp3');
 		lineClear.volume = 0.2;
 		lineClear.play();
 		++y;
@@ -323,21 +321,18 @@ document.addEventListener('keydown', event => {
 	rodar.volume = 0.1;
 	mover.volume = 0.1;
 
-	if (event.keyCode == 37) {
+	if (event.key == 'ArrowLeft') {
 		jogadorMove(-1);
 		mover.play();
-	} else if (event.keyCode == 39) {
+	} else if (event.key == 'ArrowRight') {
 		jogadorMove(1);
 		mover.play();
-	} else if (event.keyCode == 40) {
+	} else if (event.key == 'ArrowDown') {
 		jogadorDrop();
-	} else if (event.keyCode == 81) {
+	} else if (event.key == 'q') {
 		jogadorRoate(-1);
 		rodar.play();
-	} else if (event.keyCode == 87) {
-		jogadorRoate(1);
-		rodar.play();
-	} else if (event.keyCode == 38) {
+	} else if (event.key == 'w' || event.key == 'ArrowUp') {
 		jogadorRoate(1);
 		rodar.play();
 	}
@@ -352,10 +347,10 @@ let estado = false;
 function musica() {
 	if (estado) {
 		audio.pause();
-		music.textContent = 'Play Music';
+		music.value = 'Tocar música';
 	} else {
 		audio.play();
-		music.textContent = 'Pause Music';
+		music.value = 'Parar música';
 	}
 	estado = !estado;
 }

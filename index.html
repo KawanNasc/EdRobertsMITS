@@ -1,58 +1,59 @@
 <!DOCTYPE html>
-    <html lang="pt-br">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <link rel="stylesheet" href="styles/site.css">
-            <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
-            <link rel="icon" href="imgs/logo.png">
-            <title>Menu</title>
-        </head>
+<html lang="pt-br">
 
-        <body>
-            <section class="comteiner">
-                <div class="slide-conteiner active">
-                    <div class="slide">
-                        <div class="cont">
-                            <h3>MITS</h3>
-                            <p>Nessa parte do site você poderá ver um pouco sobre a emppresa MITS (Micro Instrumentation and Telemetry Systems)</p>
-                            <a href="mits.html" class="botao">Saiba Mais</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="slide-conteiner">
-                    <div class="slide">
-                        <div class="cont">
-                            <h3>Ed Roberts</h3>
-                            <p>Nessa parte do nosso site você irá ver uma bibiografia de Ed Roberts criador da MITS.</p>
-                            <a href="ed_roberts.html" class="botao">Saiba Mais</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="slide-conteiner">
-                    <div class="slide">
-                        <div class="cont">
-                            <h3>JOGO</h3>
-                            <p>Nessa parte do site você verá o jogo criado por dois de nossos membros.</p>
-                            <a href="Tetris/tetris.html" class="botao">Jogar</a>
-                        </div>
-                    </div>
-                </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="icon" href="imgs/logo.png">
+    <title>Menu</title>
+</head>
 
-                <div class="slide-conteiner">
-                    <div class="slide">
-                        <div class="cont">
-                            <h3>Informações</h3>
-                            <p>Informações como os membros do grupo e nossa RA estão aqui.</p>
-                            <a href="info.html" class="botao">Saiba Mais</a>
-                        </div>
-                    </div>
+<body>
+    <section class="container">
+        <div class="slide-container active">
+            <div class="slide">
+                <div class="cont">
+                    <h3>MITS</h3>
+                    <p>Nessa parte do site você poderá ver um pouco sobre a empresa MITS (Micro Instrumentation and
+                        Telemetry Systems).</p>
+                    <a href="mits.html" class="botao">Saiba Mais</a>
                 </div>
+            </div>
+        </div>
+        <div class="slide-container">
+            <div class="slide">
+                <div class="cont">
+                    <h3>Ed Roberts</h3>
+                    <p>Nessa parte do nosso site você irá ver uma bibiografia de Ed Roberts (Criador da MITS).</p>
+                    <a href="ed_roberts.html" class="botao">Saiba Mais</a>
+                </div>
+            </div>
+        </div>
+        <div class="slide-container">
+            <div class="slide">
+                <div class="cont">
+                    <h3>JOGO</h3>
+                    <p>Nessa parte do site você verá o jogo criado por 2 de nossos membros.</p>
+                    <a href="tetris/tetris.html" class="botao">Jogar</a>
+                </div>
+            </div>
+        </div>
+        <div class="slide-container">
+            <div class="slide">
+                <div class="cont">
+                    <h3>Nossa equipe</h3>
+                    <p>Informações como os membros do grupo e nossos RA's estão aqui.</p>
+                    <a href="equipe.html" class="botao">Saiba Mais</a>
+                </div>
+            </div>
+        </div>
 
-                <div id="seta_e" onclick="seta_e()"> < </div>
-                <div id="seta_d" onclick="seta_d()"> > </div>
-            </section>
+        <input type="button" id="seta_e" value="<" onclick="seta_e()" />
+        <input type="button" id="seta_d" value=">" onclick="seta_d()" />
+    </section>
 
-            <script src="scripts/site.js"></script>
-        </body>
-    </html>
+    <script src="scripts/site.js"></script>
+</body>
+
+</html>

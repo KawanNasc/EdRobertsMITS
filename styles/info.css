@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
 body {
     text-align: center;
     background: rgb(0, 0, 109);
@@ -26,7 +28,7 @@ img {
 
 h1 {
     text-align: center;
-    color: #21bfca;
+    color: rgb(33, 191, 202);
     font-size: 200%;
     flex-wrap: wrap;
 }
