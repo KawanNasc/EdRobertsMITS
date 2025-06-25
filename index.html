@@ -4,53 +4,201 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/style.css">
     <link rel="icon" href="imgs/logo.png">
     <title>Menu</title>
+
+    <style>
+        body {
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            background: url(imgs/background.png);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+
+        .container {
+            background: rgba(0, 0, 0, 0.479);
+        }
+
+        .container .slide-container {
+            display: none;
+            padding: 0;
+        }
+
+        .container .slide-container .slide {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 0;
+            min-height: 100vh;
+            min-width: 50;
+            align-items: center;
+            background-position: center;
+            background-size: cover;
+            gap: 15px;
+        }
+
+
+        .container .slide {
+            display: flex;
+            flex: 1 1 50%;
+            position: relative;
+            justify-content: center;
+            margin: auto;
+            width: 75vw;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.856);
+            gap: 15px;
+        }
+
+        .slide-container:nth-child(1),
+        .slide-container:nth-child(2),
+        .slide-container:nth-child(3),
+        .slide-container:nth-child(4) {
+            animation: slide-container .4s linear .4s backwards;
+        }
+
+        .container .slide-container.active {
+            display: block;
+        }
+
+        h3 {
+            font-size: 30px;
+            padding: 10px 9%;
+            margin-left: 20%;
+            color: rgb(26, 147, 247);
+        }
+
+        p {
+            font-size: 13px;
+            padding: 5px 9%;
+            margin-left: 20%;
+            height: 10%;
+            width: 40%;
+            color: rgb(255, 255, 255);
+        }
+
+        a {
+            display: inline-block;
+            font-size: 20px;
+            padding: 10px 9%;
+            margin-top: 10px;
+            margin-left: 28.6%;
+            text-decoration: none;
+            background: rgb(52, 48, 255);
+            color: rgb(255, 255, 255);
+            border: 2px solid rgb(1, 1, 122);
+            border-radius: 5px;
+        }
+
+        a:hover {
+            background: rgb(55, 0, 255);
+            color: rgb(255, 255, 255);
+            border: rgb(55, 0, 255);
+        }
+
+        #click_l,
+        #click_r {
+            position: absolute;
+            font-size: 50px;
+            font-weight: bolder;
+            text-align: center;
+            top: 50%;
+            height: 50px;
+            width: 60px;
+            line-height: 50px;
+            background-color: rgba(0, 0, 0, 0.000);
+            color: rgb(255, 255, 255);
+            border-radius: 50px;
+            cursor: pointer;
+            transform: translateY(-50%);
+        }
+
+        #click_l {
+            left: 5%;
+        }
+
+        #click_r {
+            right: 5%;
+        }
+
+        #click_l:hover,
+        #click_r:hover {
+            background: rgb(26, 147, 247);
+        }
+
+        @media(max-width: 500px) {
+            p {
+                font-size: 16px;
+                height: 10%;
+                width: 70%;
+                color: rgb(255, 255, 255);
+            }
+
+            #click_l {
+                top: 60%;
+                left: 60%;
+            }
+
+            #click_r {
+                top: 60%;
+                right: 0;
+            }
+        }
+
+        @keyframes slide-container {
+            0% {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+        }
+    </style>
 </head>
 
 <body>
     <section class="container">
         <div class="slide-container active">
             <div class="slide">
-                <div class="cont">
+                <div class="content">
                     <h3>MITS</h3>
                     <p>Nessa parte do site você poderá ver um pouco sobre a empresa MITS (Micro Instrumentation and
                         Telemetry Systems).</p>
-                    <a href="mits.html" class="botao">Saiba Mais</a>
+                    <a href="mits.html">Saiba Mais</a>
                 </div>
             </div>
         </div>
         <div class="slide-container">
             <div class="slide">
-                <div class="cont">
+                <div class="content">
                     <h3>Ed Roberts</h3>
                     <p>Nessa parte do nosso site você irá ver uma bibiografia de Ed Roberts (Criador da MITS).</p>
-                    <a href="ed_roberts.html" class="botao">Saiba Mais</a>
+                    <a href="ed_roberts.html">Saiba Mais</a>
                 </div>
             </div>
         </div>
         <div class="slide-container">
             <div class="slide">
-                <div class="cont">
+                <div class="content">
                     <h3>JOGO</h3>
                     <p>Nessa parte do site você verá o jogo criado por 2 de nossos membros.</p>
-                    <a href="tetris/tetris.html" class="botao">Jogar</a>
+                    <a href="tetris/tetris.html">Jogar</a>
                 </div>
             </div>
         </div>
         <div class="slide-container">
             <div class="slide">
-                <div class="cont">
+                <div class="content">
                     <h3>Nossa equipe</h3>
                     <p>Informações como os membros do grupo e nossos RA's estão aqui.</p>
-                    <a href="equipe.html" class="botao">Saiba Mais</a>
+                    <a href="team.html">Saiba Mais</a>
                 </div>
             </div>
         </div>
 
-        <input type="button" id="seta_e" value="<" onclick="seta_e()" />
-        <input type="button" id="seta_d" value=">" onclick="seta_d()" />
+        <input type="button" id="click_l" value="<" onclick="click_l()" />
+        <input type="button" id="click_r" value=">" onclick="click_r()" />
     </section>
 
     <script src="scripts/site.js"></script>
