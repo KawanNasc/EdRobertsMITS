@@ -23,7 +23,7 @@
             background: rgba(0, 0, 0, 0.479);
         }
 
-        .container .slide-container {
+        .slide-container {
             display: none;
             padding: 0;
         }
@@ -39,7 +39,6 @@
             background-size: cover;
             gap: 15px;
         }
-
 
         .container .slide {
             display: flex;
@@ -64,7 +63,7 @@
             display: block;
         }
 
-        h3 {
+        h1 {
             font-size: 30px;
             padding: 10px 9%;
             margin-left: 20%;
@@ -80,20 +79,18 @@
             color: rgb(255, 255, 255);
         }
 
-        a {
-            display: inline-block;
+        .redirect {
             font-size: 20px;
             padding: 10px 9%;
             margin-top: 10px;
             margin-left: 28.6%;
-            text-decoration: none;
-            background: rgb(52, 48, 255);
+            background-color: rgb(55, 0, 255);
             color: rgb(255, 255, 255);
-            border: 2px solid rgb(1, 1, 122);
+            border: 2px solid transparent;
             border-radius: 5px;
         }
 
-        a:hover {
+        .redirect:hover {
             background: rgb(55, 0, 255);
             color: rgb(255, 255, 255);
             border: rgb(55, 0, 255);
@@ -162,37 +159,45 @@
         <div class="slide-container active">
             <div class="slide">
                 <div class="content">
-                    <h3>MITS</h3>
+                    <h1>MITS</h1>
                     <p>Nessa parte do site você poderá ver um pouco sobre a empresa MITS (Micro Instrumentation and
                         Telemetry Systems).</p>
-                    <a href="mits.html">Saiba Mais</a>
+                    <a href="mits.html">
+                        <input type="button" value="Saiba Mais" class="redirect" />
+                    </a>
                 </div>
             </div>
         </div>
         <div class="slide-container">
             <div class="slide">
                 <div class="content">
-                    <h3>Ed Roberts</h3>
+                    <h1>Ed Roberts</h1>
                     <p>Nessa parte do nosso site você irá ver uma bibiografia de Ed Roberts (Criador da MITS).</p>
-                    <a href="ed_roberts.html">Saiba Mais</a>
+                    <a href="ed_roberts.html">
+                        <input type="button" value="Saiba Mais" class="redirect" />
+                    </a>
                 </div>
             </div>
         </div>
         <div class="slide-container">
             <div class="slide">
                 <div class="content">
-                    <h3>JOGO</h3>
+                    <h1>JOGO</h1>
                     <p>Nessa parte do site você verá o jogo criado por 2 de nossos membros.</p>
-                    <a href="tetris/tetris.html">Jogar</a>
+                    <a href="tetris/tetris.html">
+                        <input type="button" value="Jogar" class="redirect" />
+                    </a>
                 </div>
             </div>
         </div>
         <div class="slide-container">
             <div class="slide">
                 <div class="content">
-                    <h3>Nossa equipe</h3>
+                    <h1>Nossa equipe</h1>
                     <p>Informações como os membros do grupo e nossos RA's estão aqui.</p>
-                    <a href="team.html">Saiba Mais</a>
+                    <a href="team.html">
+                        <input type="button" value="Saiba Mais" class="redirect" />
+                    </a>
                 </div>
             </div>
         </div>
