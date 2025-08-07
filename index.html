@@ -79,30 +79,39 @@
             color: rgb(255, 255, 255);
         }
 
-        .redirect {
+        a {
+            display: inline-block;
             font-size: 20px;
             padding: 10px 9%;
             margin-top: 10px;
             margin-left: 28.6%;
-            background-color: rgb(55, 0, 255);
+            text-decoration: none;
+            background: rgb(52, 48, 255);
             color: rgb(255, 255, 255);
-            border: 2px solid transparent;
+            border: 2px solid rgb(1, 1, 122);
             border-radius: 5px;
         }
 
-        .redirect:hover {
-            background: rgb(55, 0, 255);
-            color: rgb(255, 255, 255);
+        a:hover {
+            background: rgb(255, 255, 255);
+            color: rgb(55, 0, 255);
             border: rgb(55, 0, 255);
+        }
+
+        .clicks {
+            display: flex;
+            position: absolute;
+            top: 50%;
+            width: 92%;
+            justify-content: space-between;
+            margin-left: 4%;
         }
 
         #click_l,
         #click_r {
-            position: absolute;
             font-size: 50px;
             font-weight: bolder;
             text-align: center;
-            top: 50%;
             height: 50px;
             width: 60px;
             line-height: 50px;
@@ -126,22 +135,25 @@
             background: rgb(26, 147, 247);
         }
 
-        @media(max-width: 500px) {
+        @media screen and (max-width: 500px) {
+
+            h1,
             p {
-                font-size: 16px;
-                height: 10%;
-                width: 70%;
-                color: rgb(255, 255, 255);
+                margin-left: 14%;
             }
 
-            #click_l {
-                top: 60%;
-                left: 60%;
+            p {
+                font-size: 15px;
+                width: 55%;
             }
 
+            a {
+                margin-left: 24%;
+            }
+
+            #click_l,
             #click_r {
-                top: 60%;
-                right: 0;
+                top: 80%;
             }
         }
 
@@ -162,9 +174,7 @@
                     <h1>MITS</h1>
                     <p>Nessa parte do site você poderá ver um pouco sobre a empresa MITS (Micro Instrumentation and
                         Telemetry Systems).</p>
-                    <a href="mits.html">
-                        <input type="button" value="Saiba Mais" class="redirect" />
-                    </a>
+                    <a href="mits.html">Saiba Mais</a>
                 </div>
             </div>
         </div>
@@ -173,9 +183,7 @@
                 <div class="content">
                     <h1>Ed Roberts</h1>
                     <p>Nessa parte do nosso site você irá ver uma bibiografia de Ed Roberts (Criador da MITS).</p>
-                    <a href="ed_roberts.html">
-                        <input type="button" value="Saiba Mais" class="redirect" />
-                    </a>
+                    <a href="ed_roberts.html">Saiba mais</a>
                 </div>
             </div>
         </div>
@@ -184,9 +192,7 @@
                 <div class="content">
                     <h1>JOGO</h1>
                     <p>Nessa parte do site você verá o jogo criado por 2 de nossos membros.</p>
-                    <a href="tetris/tetris.html">
-                        <input type="button" value="Jogar" class="redirect" />
-                    </a>
+                    <a href="tetris/tetris.html">Saiba mais</a>
                 </div>
             </div>
         </div>
@@ -195,18 +201,18 @@
                 <div class="content">
                     <h1>Nossa equipe</h1>
                     <p>Informações como os membros do grupo e nossos RA's estão aqui.</p>
-                    <a href="team.html">
-                        <input type="button" value="Saiba Mais" class="redirect" />
-                    </a>
+                    <a href="team.html">Saiba mais</a>
                 </div>
             </div>
         </div>
 
-        <input type="button" id="click_l" value="<" onclick="click_l()" />
-        <input type="button" id="click_r" value=">" onclick="click_r()" />
+        <div class="clicks">
+            <input type="button" id="click_l" value="<" onclick="click_l()" />
+            <input type="button" id="click_r" value=">" onclick="click_r()" />
+        </div>
     </section>
 
-    <script src="scripts/site.js"></script>
+    <script src="scripts/site.js" async></script>
 </body>
 
 </html>
